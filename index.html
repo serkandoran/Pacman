@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pac-Man</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script  src="index.js" defer></script>
+<style>
+body{
+    margin: 0;
+    padding: 0;
+    min-height: 100vh;
+    width: 100%;
+    background-color: black;
+}
+#oyunEkrani{
+    width: 1020px;
+    height: 690px;
+    margin: 0 auto;
+    background-image: url('./pacman-bg.png');
+    background-repeat: no-repeat;
+    position: relative;
+}
+#oyunEkrani>div{text-align: center;}
+
+#e1{
+    height: 55px;
+    width: 135px;
+    left: 100px;
+    top: 65px;
+    background: white;
+    position: absolute;
+}
+#e2{
+    height: 50px;
+    width: 155px;
+    left: 285px;
+    top: 65px;
+    background: white;
+    position: absolute;
+}
+#e3{
+    height: 55px;
+    width: 160px;
+    left: 600px;
+    top: 65px;
+    background: white;
+    position: absolute;
+}
+#e4{
+    height: 50px;
+    top: 65px;
+    width: 115px;
+    left: 805px;
+    background: white;
+    position: absolute;
+}
+#e5{
+    height: 20px;
+    width: 130px;
+    left: 100px;
+    top: 155px;
+    background-color: white;
+    position: absolute;
+}
+#e61{
+    height: 140px;
+    width: 40px;
+    left: 285px;
+    top: 155px;
+    position: absolute;
+    background: white;
+}
+#e62{
+    height: 20px;
+    width: 125px;
+    left: 320px;
+    top: 215px;
+    position: absolute;
+    background: white;
+}
+#e71{
+    height: 25px;
+    width: 275px;
+    left: 375px;
+    top: 155px;
+    position: absolute;
+    background: white;
+}
+#e72{
+    height: 60px;
+    width: 50px;
+    left: 495px;
+    top: 175px;
+    position: absolute;
+    background: white;
+}
+#e81{
+    height: 145px;
+    width: 60px;
+    left: 700px;
+    top: 155px;
+    position: absolute;
+    background: white;
+}
+#e82{
+    height: 20px;
+    width: 105px;
+    left: 595px;
+    top: 215px;
+    position: absolute;
+    background: white;
+}
+#e9{
+    height: 25px;
+    width: 115px;
+    left: 805px;
+    top: 155px;
+    background-color: white;
+    position: absolute;
+}
+#e10{
+    height: 100px;
+    width: 40px;
+    top: 335px;
+    left: 280px;
+    background: white;
+    position: absolute;
+}
+#m1{
+    height: 15px;
+    width: 75px;
+    top: 275px;
+    left: 370px;
+    background: white;
+    position: absolute;
+}
+#kapi{
+    position: absolute;
+    height: 15px;
+    width: 50px;
+    left: 480px;
+    top: 275px;
+    background: white;
+}
+#m2{
+    height: 25px;
+    width: 25px;
+    top: 310px;
+    left: 370px;
+    background: white;
+    position: absolute;
+}
+#m3{
+    height: 15px;
+    width: 280px;
+    top: 355px;
+    left: 370px;
+    background: white;
+    position: absolute;
+}
+#m4{
+    height: 25px;
+    width: 25px;
+    top: 310px;
+    left: 625px;
+    background: white;
+    position: absolute;
+}
+#m5{
+    height: 15px;
+    width: 85px;
+    top: 275px;
+    left: 565px;
+    background: white;
+    position: absolute;
+}
+#e11{
+    height: 95px;
+    width: 60px;
+    top: 340px;
+    left: 700px;
+    background: white;
+    position: absolute;
+}
+#e121{
+    height: 20px;
+    width: 285px;
+    left: 370px;
+    top: 410px;
+    position: absolute;
+    background: white;
+}
+#e122{
+    height: 60px;
+    width: 65px;
+    left: 480px;
+    top: 435px;
+    position: absolute;
+    background: white;
+}
+#e131{
+    height: 25px;
+    width: 125px;
+    left: 105px;
+    top: 470px;
+    background: white;
+    position: absolute;
+}
+#e132{
+    height: 50px;
+    width: 55px;
+    left: 175px;
+    top: 515px;
+    background: white;
+    position: absolute;
+}
+#e14{
+    height: 25px;
+    width: 140px;
+    left: 285px;
+    top: 470px;
+    background: white;
+    position: absolute;
+}
+#e15{
+    height: 25px;
+    width: 160px;
+    left: 600px;
+    top: 470px;
+    background: white;
+    position: absolute;
+}
+#e161{
+    height: 25px;
+    width: 115px;
+    left: 810px;
+    top: 475px;
+    background: white;
+    position: absolute;
+}
+#e162{
+    height: 45px;
+    width: 55px;
+    left: 810px;
+    top: 520px;
+    background: white;
+    position: absolute;
+}
+#e171{
+    height: 80px;
+    width: 40px;
+    left: 280px;
+    top: 535px;
+    position: absolute;
+    background: white;
+}
+#e172{
+    height: 20px;
+    width: 320px;
+    left: 105px;
+    top: 610px;
+    position: absolute;
+    background: white;
+}
+#e181{
+    height: 35px;
+    width: 275px;
+    left: 375px;
+    top: 530px;
+    position: absolute;
+    background: white;
+}
+#e182{
+    height: 60px;
+    width: 65px;
+    left: 480px;
+    top: 565px;
+    position: absolute;
+    background: white;
+}
+#e191{
+    height: 70px;
+    width: 55px;
+    left: 705px;
+    top: 535px;
+    position: absolute;
+    background: white;
+}
+#e192{
+    height: 25px;
+    width: 325px;
+    left: 600px;
+    top: 605px;
+    position: absolute;
+    background: white;
+}
+#c1{
+    font-size: 10px;
+    font-weight: bold;
+    height: 20px;
+    width: 950px;
+    left: 35px;
+    top: 10px;
+    background: white;
+    position: absolute;
+}
+#c2{
+    font-size: 10px;
+    font-weight: bold;
+    height: 200px;
+    width: 30px;
+    left: 20px;
+    top: 25px;
+    background: white;
+    position: absolute;
+}
+#c3{
+    font-size: 10px;
+    font-weight: bold;
+    height: 10px;
+    width: 195px;
+    left: 35px;
+    top: 215px;
+    background: white;
+    position: absolute;
+}
+#c4{
+    font-size: 10px;
+    font-weight: bold;
+    height: 55px;
+    width: 10px;
+    left: 225px;
+    top: 245px;
+    background: white;
+    position: absolute;
+}
+#c5{
+    font-size: 10px;
+    font-weight: bold;
+    height: 10px;
+    width: 170px;
+    left: 15px;
+    top: 295px;
+    background: white;
+    position: absolute;
+}
+#c6{
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    width: 170px;
+    left: 15px;
+    top: 340px;
+    background: white;
+    position: absolute;
+}
+#c7{
+    font-size: 10px;
+    font-weight: bold;
+    height: 55px;
+    width: 10px;
+    left: 225px;
+    top: 340px;
+    background: white;
+    position: absolute;
+/* #c7{
+    font-size: 10px;
+    font-weight: bold;
+    height: 90px;
+    width: 45px;
+    left: 190px;
+    top: 340px;
+    background: white;
+    position: absolute; */
+}
+#c8{
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    width: 195px;
+    left: 35px;
+    top: 415px;
+    background: white;
+    position: absolute;
+}
+#c9{
+    font-size: 10px;
+    font-weight: bold;
+    height: 260px;
+    width: 30px;
+    left: 25px;
+    top: 420px;
+    background: white;
+    position: absolute;
+}
+#c10{
+    font-size: 10px;
+    font-weight: bold;
+    height: 10px;
+    width: 950px;
+    left: 35px;
+    top: 670px;
+    background: white;
+    position: absolute;
+}
+#c11{
+    font-size: 10px;
+    font-weight: bold;
+    height: 260px;
+    width: 40px;
+    left: 975px;
+    top: 420px;
+    background: white;
+    position: absolute;
+}
+#c12{
+    font-size: 10px;
+    font-weight: bold;
+    height: 10px;
+    width: 110px;
+    left: 855px;
+    top: 420px;
+    background: white;
+    position: absolute;
+}
+#c13{
+    font-size: 10px;
+    font-weight: bold;
+    height: 90px;
+    width: 10px;
+    left: 810px;
+    top: 340px;
+    background: white;
+    position: absolute;
+}
+#c14{
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    width: 160px;
+    left: 855px;
+    top: 340px;
+    background: white;
+    position: absolute;
+}
+#c15{
+    font-size: 10px;
+    font-weight: bold;
+    height: 15px;
+    width: 160px;
+    left: 855px;
+    top: 280px;
+    background: white;
+    position: absolute;
+}
+#c16{
+    font-size: 10px;
+    font-weight: bold;
+    height: 80px;
+    width: 10px;
+    left: 810px;
+    top: 215px;
+    background: white;
+    position: absolute;
+}
+#c17{
+    font-size: 10px;
+    font-weight: bold;
+    height: 10px;
+    width: 160px;
+    left: 855px;
+    top: 215px;
+    background: white;
+    position: absolute;
+}
+#c18{
+    font-size: 10px;
+    font-weight: bold;
+    height: 210px;
+    width: 40px;
+    left: 970px;
+    top: 10px;
+    background: white;
+    position: absolute;
+}
+#kust{
+    height: 95px;
+    width: 50px;
+    left: 495px;
+    top: 25px;
+    position: absolute;
+    background: white;
+}
+#ksol{
+    height: 30px;
+    width: 75px;
+    left: 50px;
+    top: 535px;
+    position: absolute;
+    background: white;
+}
+#ksag{
+    height: 30px;
+    width: 65px;
+    left: 915px;
+    top: 535px;
+    position: absolute;
+    background: white;
+}
+
+
+/* -------------------------------------------- */
+
+.yukariGidiyor::before{
+    content: '';
+    position: absolute;
+    top: 0px;
+    left: 10px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-top: 22px solid black;
+}
+.asagiGidiyor::before{
+    content: '';
+    position: absolute;
+    bottom: 0px;
+    left: 10px;
+    border-left: 9px solid transparent;
+    border-right: 9px solid transparent;
+    border-bottom: 22px solid black;
+}
+.sagaGidiyor::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    right: 0px;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-right: 22px solid black;
+}
+.solaGidiyor::before{
+    content: '';
+    position: absolute;
+    top: 10px;
+    left: 0px;
+    border-top: 9px solid transparent;
+    border-bottom: 9px solid transparent;
+    border-left: 22px solid black;
+}
+#yem{
+    height: 5px;
+    width: 5px;
+    position: absolute;
+    background: transparent;
+}
+#yem::before{
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    border-radius: 20%;
+    transform: rotate(45deg);
+    background: rgb(196, 154, 101);
+}
+
+#pacman{
+    height: 35px;
+    width: 35px;
+    background: yellow;
+    position: absolute;
+    border-radius: 50%;
+
+    top: 630px;
+    /* left: 60px; */
+    left: 450px;
+}
+#ghost_red{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: red;
+    left: 495px;
+    top: 300px;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+}
+#ghost_pink{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: pink;  
+    left: 555px;
+    top: 300px;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+}
+
+#ghost_blue{
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: lightskyblue;   
+    left: 435px;
+    top: 300px;
+    border-top-left-radius: 45%;
+    border-top-right-radius: 45%;
+}
+
+/* AYAKLAR kırmızı için */
+#ghost_red > #foots > #left_foot{
+    position: absolute;
+    background: red;
+    width: 7px;
+    height: 15px;
+    left: 11px;
+    bottom: -6px;
+    border-bottom-left-radius: 50%;
+}
+#ghost_red> #foots > #right_foot{
+    position: absolute;
+    background: red;
+    width: 7px;
+    height: 15px;
+    left: 23px;
+    bottom: -6px;
+    border-bottom-right-radius: 50%;
+}
+
+#ghost_pink > #foots > #left_foot{
+    position: absolute;
+    background: pink;
+    width: 7px;
+    height: 15px;
+    left: 11px;
+    bottom: -6px;
+    border-bottom-left-radius: 50%;
+}
+#ghost_pink> #foots > #right_foot{
+    position: absolute;
+    background: pink;
+    width: 7px;
+    height: 15px;
+    left: 23px;
+    bottom: -6px;
+    border-bottom-right-radius: 50%;
+}
+
+/* AYAKLAR mavi için */
+#ghost_blue > #foots > #left_foot{
+    position: absolute;
+    background: lightskyblue;
+    width: 7px;
+    height: 15px;
+    left: 11px;
+    bottom: -6px;
+    border-bottom-left-radius: 50%;
+}
+#ghost_blue> #foots > #right_foot{
+    position: absolute;
+    background: lightskyblue;
+    width: 7px;
+    height: 15px;
+    left: 23px;
+    bottom: -6px;
+    border-bottom-right-radius: 50%;
+}
+
+
+/* GÖZLER */
+#left_eye{
+    left: 5px;
+    top: 7px;
+    height: 11px;
+    width: 11px;
+    background: white;
+    position: absolute;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+#right_eye{
+    left: 21px;
+    top: 7px;
+    height: 11px;
+    width: 11px;
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    border: 1px solid black;
+}
+.eye_to_left::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 4px;
+    background: black;
+    left: 0px;
+    top: 3px;
+    border-radius: 50%;
+}
+.eye_to_right::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 4px;
+    background: black;
+    right: 0px;
+    top: 3px;
+    border-radius: 50%;
+}
+.eye_to_up::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 4px;
+    background: black;
+    left: 3px;
+    top: 0px;
+    border-radius: 50%;
+}
+.eye_to_down::before{
+    content: '';
+    position: absolute;
+    width: 5px;
+    height: 4px;
+    background: black;
+    left: 3px;
+    bottom: 0px;
+    border-radius: 50%;
+}
+#ozelYem{
+    position: absolute;
+    height: 20px;
+    width: 20px;
+    border-radius: 50%;
+    background-color: pink;
+    border: 1px solid black;
+}
+
+</style>
+</head>
+<body>
+
+    <div id="oyunEkrani">
+
+        <div id="pacman"></div>
+
+        <div id="engeller">
+            <div id="kapi"></div>
+            <div id="e1">e1</div>
+            <div id="e2">e2</div>
+            <div id="e3">e3</div>
+            <div id="e4">e4</div>
+            <div id="e5">e5</div>
+            <div id="e61">e61</div>
+            <div id="e62">e62</div>
+            <div id="e71">e71</div>
+            <div id="e72">e72</div>
+            <div id="e81">e81</div>
+            <div id="e82">e82</div>
+            <div id="e9">e9</div>
+            <div id="e10">e10</div>
+            <div id="m1">m1</div>
+            <div id="m2">m2</div>
+            <div id="m3">m3</div>
+            <div id="m4">m4</div>
+            <div id="m5">m5</div>
+            <div id="e11">e11</div>
+            <div id="e121">e121</div>
+            <div id="e122">e122</div>
+            <div id="e131">e131</div>
+            <div id="e132">e132</div>
+            <div id="e14">e14</div>
+            <div id="e15">e15</div>
+            <div id="e161">e161</div>
+            <div id="e162">e162</div>
+            <div id="e171">e171</div>
+            <div id="e172">e172</div>
+            <div id="e181">e181</div>
+            <div id="e182">e182</div>
+            <div id="e191">e191</div>
+            <div id="e192">e192</div>
+            <div id="c1">c1</div>
+            <div id="c2">c2</div>
+            <div id="c3">c3</div>
+            <div id="c4">c4</div>
+            <div id="c5">c5</div>
+            <div id="c6">c6</div>
+            <div id="c7">c7</div>
+            <div id="c8">c8</div>
+            <div id="c9">c9</div>
+            <div id="c10">c10</div>
+            <div id="c11">c11</div>
+            <div id="c12">c12</div>
+            <div id="c13">c13</div>
+            <div id="c14">c14</div>
+            <div id="c15">c15</div>
+            <div id="c16">c16</div>
+            <div id="c17">c17</div>
+            <div id="c18">c18</div>
+            <div id="kust">kust</div>
+            <div id="ksol">ksol</div>
+            <div id="ksag">ksag</div>
+        </div>
+
+
+        <!--  -->
+
+        <div id="ghost_red" style="z-index: 200;">
+            <div id="eyes">
+                <div id="left_eye"></div>
+                <div id="right_eye"></div>
+            </div>
+            <div id="foots">
+                <div id="left_foot" ></div>
+                <div id="right_foot"></div>
+            </div>
+        </div>
+
+        
+        <div id="ghost_pink" style="z-index: 200;">
+            <div id="eyes">
+                <div id="left_eye"></div>
+                <div id="right_eye"></div>
+            </div>
+            <div id="foots">
+                <div id="left_foot"></div>
+                <div id="right_foot"></div>
+            </div>
+        </div>
+
+
+        <div id="ghost_blue" style="z-index: 200;">
+            <div id="eyes">
+                <div id="left_eye"></div>
+                <div id="right_eye"></div>
+            </div>
+            <div id="foots">
+                <div id="left_foot"></div>
+                <div id="right_foot"></div>
+            </div>
+        </div>
+
+    </div>
+
+
+</body>
+</html>
+
